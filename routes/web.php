@@ -22,7 +22,7 @@ Route::get('respond', 'ApiController@respond');
 
 Route::get('setWebHook', 'ApiController@setWebHook');
 
-Route::post('my-bot-token/webhook', 'ApiController@setWebHook');
+Route::post('438465231:AAGIHk-bUMaIzvYLCz1usGpN56QVVb8RRT4/webhook', 'ApiController@setWebHook');
 
 
 

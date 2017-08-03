@@ -82,8 +82,8 @@ class ApiController extends Controller
 
     public function setwebhook(Request $request){
         $telegram = new Api(env('TELEGRAM-BOT-TOKEN'));
-        $server=$_SERVER['HTTP_HOST'];
-        $response = $telegram->setWebHook(["url" => "https:///my-bot-token/webhook"]);
+
+        $response = $telegram->setWebHook(["url" => "https://fast-wildwood-70808.herokuapp.com/438465231:AAGIHk-bUMaIzvYLCz1usGpN56QVVb8RRT4/webhook"]);
 
         return $response;
 //
