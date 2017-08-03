@@ -81,35 +81,35 @@ class ApiController extends Controller
     }
 
     public function setwebhook(Request $request){
-        $telegram = new Api(env('TELEGRAM-BOT-TOKEN'));
+//        $telegram = new Api(env('TELEGRAM-BOT-TOKEN'));
+//
+//        $response = $telegram->setWebHook(["url" => "https://fast-wildwood-70808.herokuapp.com/438465231:AAGIHk-bUMaIzvYLCz1usGpN56QVVb8RRT4/webhook"]);
+//
+//        return $response;
+//
+//
+        $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
+        return $request['chat'];
+        $chatid = $request['message']['chat']['id'];
+        $text = $request['message']['text'];
 
-        $response = $telegram->setWebHook(["url" => "https://fast-wildwood-70808.herokuapp.com/438465231:AAGIHk-bUMaIzvYLCz1usGpN56QVVb8RRT4/webhook"]);
-
-        return $response;
-//
-//
-//        $telegram = new Api(env('TELEGRAM_BOT_TOKEN'));
-//        return $request['chat'];
-//        $chatid = $request['message']['chat']['id'];
-//        $text = $request['message']['text'];
-//
-//        switch($text) {
-//            case '/start':
-//                $this->showMenu($telegram, $chatid);
-//                break;
-//            case '/menu':
-//                $this->showMenu($telegram, $chatid);
-//                break;
-//            case '/website':
-//                $this->showWebsite($telegram, $chatid);
-//                break;
-//            case '/contact';
-//                $this->showContact($telegram, $chatid);
-//                break;
-//            default:
-//                $info = 'I do not understand what you just said. Please choose an option';
-//                $this->showMenu($telegram, $chatid, $info);
-//        }
+        switch($text) {
+            case '/start':
+                $this->showMenu($telegram, $chatid);
+                break;
+            case '/menu':
+                $this->showMenu($telegram, $chatid);
+                break;
+            case '/website':
+                $this->showWebsite($telegram, $chatid);
+                break;
+            case '/contact';
+                $this->showContact($telegram, $chatid);
+                break;
+            default:
+                $info = 'I do not understand what you just said. Please choose an option';
+                $this->showMenu($telegram, $chatid, $info);
+        }
     }
 }
 
